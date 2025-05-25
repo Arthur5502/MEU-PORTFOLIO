@@ -1,13 +1,132 @@
-body {
-    background: linear-gradient(to bottom,  lightblue, white); 
-    height: 1200px;
-    max-height: 100%;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    display: block;
-  } 
+:root {
+    --cor-fundo: #12181F;
+    --cor-fundo-card: #1A222B;
+    --cor-texto: #E1E1E6;
+    --cor-titulo: #FFFFFF;
+    --cor-destaque: #00A8CC;
+    --fonte-principal: 'Poppins', sans-serif;
+}
 
-#central {
-    text-align: center;  
-  }
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: var(--fonte-principal);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: var(--cor-fundo);
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--cor-fundo-card);
+}
+
+header h1 {
+    color: var(--cor-titulo);
+    margin: 0;
+    font-weight: 700;
+}
+
+header .subtitle {
+    color: var(--cor-destaque);
+    font-size: 1.2rem;
+    margin: 5px 0 20px 0;
+    font-weight: 400;
+}
+
+header .links a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+header .links a:hover {
+    color: var(--cor-destaque);
+}
+
+section {
+    padding: 40px 0;
+    border-bottom: 1px solid var(--cor-fundo-card);
+}
+
+section h2 {
+    color: var(--cor-titulo);
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#projetos .grid-projetos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card-projeto {
+    background-color: var(--cor-fundo-card);
+    border-radius: 8px;
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-projeto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card-projeto h3 {
+    color: var(--cor-titulo);
+    margin-top: 0;
+}
+
+.card-projeto .tecnologias {
+    color: var(--cor-destaque);
+    font-size: 0.9rem;
+    margin-top: 15px;
+}
+
+#competencias .grid-competencias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+#competencias h4 {
+    color: var(--cor-destaque);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+#competencias ul {
+    list-style: none;
+    padding: 0;
+}
+
+#competencias li {
+    background-color: var(--cor-fundo-card);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
+
+#formacao {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    color: var(--cor-texto);
+}
