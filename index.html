@@ -10,10 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="cursor-dot"></div>
+
     <header>
         <div class="container">
             <h1>ARTHUR FELIPE CAMPOS PINA</h1>
-            <p class="subtitle">Desenvolvedor de Software</p>
+            <p class="subtitle" id="subtitle-typewriter"></p>
             <div class="links">
                 <a href="https://www.linkedin.com/in/arthur-campos-a120472b7/" target="_blank">LinkedIn</a>
                 <a href="https://github.com/Arthur5502" target="_blank">GitHub</a>
@@ -23,7 +25,7 @@
     </header>
 
     <main class="container">
-        <section id="sobre">
+        <section id="sobre" class="hidden">
             <h2>Sobre</h2>
             <p>
                 Desenvolvedor em formação pela CESAR School, com foco na construção de soluções tecnológicas robustas e eficientes. Minha paixão por desafios me direciona para as áreas de <strong>Análise de Dados</strong> e <strong>DevOps</strong>, onde busco me especializar para otimizar a performance e a entrega de software.
@@ -33,7 +35,7 @@
             </p>
         </section>
 
-        <section id="projetos">
+        <section id="projetos" class="hidden">
             <h2>Projetos em Destaque</h2>
             <div class="grid-projetos">
                 <div class="card-projeto">
@@ -59,7 +61,7 @@
             </div>
         </section>
 
-        <section id="competencias">
+        <section id="competencias" class="hidden">
             <h2>Competências Técnicas</h2>
             <div class="grid-competencias">
                 <div>
@@ -98,7 +100,7 @@
             </div>
         </section>
 
-        <section id="formacao">
+        <section id="formacao" class="hidden">
             <h2>Formação Acadêmica</h2>
             <p><strong>Análise e Desenvolvimento de Sistemas</strong></p>
             <p>Cesar School, Recife-PE (Cursando, 3º período)</p>
@@ -108,5 +110,9 @@
     <footer>
         <p>&copy; 2025 Arthur Felipe Campos Pina</p>
     </footer>
+
+    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+    <script src="script.js"></script>
+
 </body>
 </html>

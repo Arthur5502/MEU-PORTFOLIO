@@ -1,132 +1,216 @@
+/* =================================
+  VARIÁVEIS GLOBAIS (CORES E FONTES)
+   ================================= */
 :root {
-    --cor-fundo: #12181F;
-    --cor-fundo-card: #1A222B;
-    --cor-texto: #E1E1E6;
-    --cor-titulo: #FFFFFF;
-    --cor-destaque: #00A8CC;
-    --fonte-principal: 'Poppins', sans-serif;
+  --cor-fundo: #12181F;
+  --cor-fundo-card: #1A222B;
+  --cor-texto-principal: #E1E1E6;
+  --cor-texto-secundario: #C4C4CC;
+  --cor-titulo: #FFFFFF;
+  --cor-destaque: #00A8CC;
+  /* Um ciano vibrante para destaques */
+  --fonte-principal: 'Poppins', sans-serif;
 }
 
+/* =================================
+  RESET E ESTILOS GERAIS DO BODY
+   ================================= */
 body {
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
-    font-family: var(--fonte-principal);
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-principal);
+  font-family: var(--fonte-principal);
+  line-height: 1.7;
+  /* Aumentado para melhor legibilidade */
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  /* Deixa a fonte mais suave em alguns navegadores */
+  text-rendering: optimizeLegibility;
 }
 
 .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px 25px;
+  /* Aumentado o padding lateral */
 }
 
+/* =================================
+   CABEÇALHO (HEADER)
+   ================================= */
 header {
-    background-color: var(--cor-fundo);
-    padding: 40px 20px;
-    text-align: center;
-    border-bottom: 1px solid var(--cor-fundo-card);
+  padding: 60px 20px;
+  text-align: center;
+  border-bottom: 1px solid var(--cor-fundo-card);
 }
 
 header h1 {
-    color: var(--cor-titulo);
-    margin: 0;
-    font-weight: 700;
+  color: var(--cor-titulo);
+  font-size: 2.8rem;
+  /* Título principal maior para mais impacto */
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  /* Espaçamento entre letras para um look mais refinado */
+  margin: 0 0 10px 0;
 }
 
 header .subtitle {
-    color: var(--cor-destaque);
-    font-size: 1.2rem;
-    margin: 5px 0 20px 0;
-    font-weight: 400;
+  color: var(--cor-destaque);
+  font-size: 1.3rem;
+  margin: 0 0 25px 0;
+  font-weight: 400;
 }
 
 header .links a {
-    color: var(--cor-texto);
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: 600;
-    transition: color 0.3s ease;
+  color: var(--cor-texto-principal);
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 600;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 header .links a:hover {
-    color: var(--cor-destaque);
+  color: var(--cor-destaque);
+  text-shadow: 0 0 5px var(--cor-destaque);
+  /* Efeito de brilho ao passar o mouse */
 }
 
+/* =================================
+   ESTRUTURA DAS SEÇÕES
+   ================================= */
 section {
-    padding: 40px 0;
-    border-bottom: 1px solid var(--cor-fundo-card);
+  padding: 60px 0;
+  border-bottom: 1px solid var(--cor-fundo-card);
 }
 
 section h2 {
-    color: var(--cor-titulo);
-    font-size: 2rem;
-    margin-bottom: 30px;
-    text-align: center;
+  color: var(--cor-titulo);
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 50px;
+  /* Mais espaço abaixo dos títulos de seção */
+  text-align: center;
 }
 
+/* Estilo específico para o parágrafo da seção "Sobre" */
+#sobre p {
+  font-size: 1.1rem;
+  text-align: justify;
+  /* Alinhamento justificado para um visual de bloco de texto */
+  margin-bottom: 1.5em;
+  /* Espaçamento entre parágrafos */
+  color: var(--cor-texto-secundario);
+}
+
+/* =================================
+   CARDS DE PROJETO
+   ================================= */
 #projetos .grid-projetos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
 }
 
 .card-projeto {
-    background-color: var(--cor-fundo-card);
-    border-radius: 8px;
-    padding: 25px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--cor-fundo-card);
+  border-radius: 8px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-projeto:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
 .card-projeto h3 {
-    color: var(--cor-titulo);
-    margin-top: 0;
+  color: var(--cor-titulo);
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.card-projeto p {
+  color: var(--cor-texto-secundario);
+  /* Cor mais suave para a descrição */
+  font-size: 0.95rem;
+  /* Tamanho ligeiramente menor */
+  flex-grow: 1;
+  /* Faz o parágrafo ocupar o espaço disponível */
 }
 
 .card-projeto .tecnologias {
-    color: var(--cor-destaque);
-    font-size: 0.9rem;
-    margin-top: 15px;
+  color: var(--cor-destaque);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 20px;
 }
 
+/* =================================
+   SEÇÃO DE COMPETÊNCIAS
+   ================================= */
 #competencias .grid-competencias {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    text-align: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  text-align: center;
 }
 
 #competencias h4 {
-    color: var(--cor-destaque);
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+  color: var(--cor-destaque);
+  font-size: 1.3rem;
+  margin-bottom: 15px;
 }
 
 #competencias ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 #competencias li {
-    background-color: var(--cor-fundo-card);
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 8px;
+  background-color: var(--cor-fundo-card);
+  color: var(--cor-texto-principal);
+  padding: 12px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+#competencias li:hover {
+  background-color: var(--cor-destaque);
+  color: var(--cor-fundo);
+}
+
+/*=================================
+  RODAPÉ (FOOTER)
+  ================================= */
 #formacao {
-    text-align: center;
+  text-align: center;
 }
 
 footer {
-    text-align: center;
-    padding: 20px;
-    font-size: 0.9rem;
-    color: var(--cor-texto);
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 0.9rem;
+  color: var(--cor-texto-secundario);
+  border-top: 1px solid var(--cor-fundo-card);
+}
+
+/* =================================
+  ANIMAÇÕES COM JAVASCRIPT
+   ================================= */
+
+/* Estado inicial dos elementos que serão animados */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px); /* Começa um pouco abaixo */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Estado final (visível) que o JavaScript irá ativar */
+.show {
+    opacity: 1;
+    transform: translateY(0); /* Volta à posição original */
 }
