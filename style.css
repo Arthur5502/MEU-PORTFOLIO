@@ -198,6 +198,16 @@ footer {
   border-top: 1px solid var(--cor-fundo-card);
 }
 
+/* Estilo para a Foto de Perfil */
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Deixa a imagem redonda */
+    border: 4px solid var(--cor-destaque); /* Borda na cor de destaque */
+    object-fit: cover; /* Garante que a foto preencha o círculo sem distorcer */
+    margin-bottom: 20px; /* Espaço entre a foto e o nome */
+}
+
 /* =================================
   ANIMAÇÕES COM JAVASCRIPT
    ================================= */
