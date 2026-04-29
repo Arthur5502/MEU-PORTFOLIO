@@ -3,117 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Arthur Campos — Desenvolvedor de Software com foco em Data & DevOps. Estudante na CESAR School, Recife-PE.">
+    <meta property="og:title" content="Arthur Campos | Desenvolvedor de Software">
+    <meta property="og:description" content="Portfolio de Arthur Campos — Full Stack, Data & DevOps.">
     <title>Arthur Campos | Desenvolvedor de Software</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="cursor-dot"></div>
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">↑</button>
 
-    <header>
-        <div class="container">
-            <img src="img/Minha ft.jpeg" alt="Foto de perfil de Arthur Campos" class="profile-picture">
-            <h1>ARTHUR FELIPE CAMPOS PINA</h1>
-            <p class="subtitle" id="subtitle-typewriter"></p>
-            <div class="links">
-                <a href="https://www.linkedin.com/in/arthur-campos-a120472b7/" target="_blank">LinkedIn</a>
-                <a href="https://github.com/Arthur5502" target="_blank">GitHub</a>
-                <a href="mailto:arthurfelipecampos@hotmail.com">Email</a>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">AC</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#competencias">Skills</a></li>
+                <li><a href="#formacao">Formação</a></li>
+                <li><a href="#contato" class="nav-cta">Contato</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <header id="hero">
+        <div class="hero-glow"></div>
+        <div class="container hero-content">
+            <div class="profile-wrapper">
+                <img src="img/Minha ft.jpeg" alt="Foto de perfil de Arthur Campos" class="profile-picture">
+            </div>
+            <h1>Arthur Campos</h1>
+            <p class="subtitle"><span id="subtitle-typewriter"></span></p>
+            <p class="hero-bio">Desenvolvedor em formação pela <strong>CESAR School</strong>, apaixonado por construir soluções robustas e eficientes.</p>
+            <div class="hero-links">
+                <a href="https://www.linkedin.com/in/arthur-campos-a120472b7/" target="_blank" class="btn btn-primary">LinkedIn</a>
+                <a href="https://github.com/Arthur5502" target="_blank" class="btn btn-outline">GitHub</a>
+                <a href="mailto:arthurfelipecampos@hotmail.com" class="btn btn-outline">Email</a>
             </div>
         </div>
     </header>
 
     <main class="container">
         <section id="sobre" class="hidden">
-            <h2>Sobre</h2>
-            <p>
-                Desenvolvedor em formação pela CESAR School, com foco na construção de soluções tecnológicas robustas e eficientes. Minha paixão por desafios me direciona para as áreas de <strong>Análise de Dados</strong> e <strong>DevOps</strong>, onde busco me especializar para otimizar a performance e a entrega de software.
-            </p>
-            <p>
-                Com experiência prática no desenvolvimento de aplicações full-stack, gerenciamento de projetos e colaboração em equipe, estou preparado para contribuir em ambientes dinâmicos e inovadores. Busco oportunidades onde eu possa aplicar meu conhecimento e aprender continuamente, gerando valor e impulsionando resultados.
-            </p>
+            <h2>Sobre Mim</h2>
+            <div class="sobre-grid">
+                <div class="sobre-texto">
+                    <p>
+                    Desenvolvedor full-stack pela <strong>CESAR School</strong>, com foco em arquitetura cloud, sistemas serverless e desenvolvimento backend. Fundador e desenvolvedor principal da <strong>Dogship</strong>, uma plataforma SaaS multi-tenant para serviços de cuidados pet — do design da solução até o deploy em produção na AWS.
+                    </p>
+                    <p>
+                    Tenho experiência prática com <strong>Python e FastAPI</strong> para construção de APIs robustas, <strong>PostgreSQL</strong> para modelagem e otimização de dados, e infraestrutura na <strong>AWS</strong> utilizando Lambda, API Gateway, S3, CloudFront, Cognito e RDS. Ao longo do desenvolvimento da Dogship, implementei desde pipelines de upload de mídia e distribuição de conteúdo até sistemas de autenticação com login federado e arquiteturas multi-tenant escaláveis.
+                    </p>
+                    <p>
+                    Busco oportunidades onde possa aplicar essa bagagem técnica em produtos reais, continuar evoluindo em cloud e backend, e contribuir com times que valorizam entregas de alto impacto.
+                    </p>
+                </div>
+                <div class="sobre-stats">
+                    <div class="stat-card">
+                        <span class="stat-number">4+</span>
+                        <span class="stat-label">Projetos</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">5º</span>
+                        <span class="stat-label">Período</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Tecnologias</span>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="projetos" class="hidden">
             <h2>Projetos em Destaque</h2>
             <div class="grid-projetos">
                 <div class="card-projeto">
-                    <h3>Minibank | Frontend</h3>
-                    <p>Responsável pela arquitetura e desenvolvimento completo da interface de um banco digital com React, TypeScript e Chakra UI. Estruturei componentes reutilizáveis e organizei o código para garantir escalabilidade e manutenibilidade.</p>
-                    <p class="tecnologias"><strong>Tecnologias:</strong> React, TypeScript, Chakra UI, Git</p>
+                    <div class="card-header">
+                        <span class="card-icon">🏦</span>
+                        <div class="card-tags">
+                            <span class="tag">Frontend</span>
+                        </div>
+                    </div>
+                    <h3>Minibank</h3>
+                    <p>Arquitetura e desenvolvimento completo da interface de um banco digital. Estruturei componentes reutilizáveis com foco em escalabilidade e manutenibilidade.</p>
+                    <div class="card-footer">
+                        <div class="tech-pills">
+                            <span>React</span><span>TypeScript</span><span>Chakra UI</span><span>Git</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-projeto">
-                    <h3>Dogship | Backend</h3>
-                    <p>Atuei no desenvolvimento de APIs RESTful com FastAPI e PostgreSQL. Tive participação ativa na estruturação de microsserviços, versionamento com Git e na criação e consumo de endpoints HTTP.</p>
-                    <p class="tecnologias"><strong>Tecnologias:</strong> Python, FastAPI, PostgreSQL, Git, Microsserviços</p>
+                    <div class="card-header">
+                        <span class="card-icon">🐾</span>
+                        <div class="card-tags">
+                            <span class="tag">Backend</span>
+                        </div>
+                    </div>
+                    <h3>Dogship</h3>
+                    <p>Desenvolvedor Backend responsável por APIs RESTful com FastAPI e PostgreSQL. Atuo na arquitetura de microsserviços e na infraestrutura serverless com AWS Lambda e API Gateway.</p>
+                    <div class="card-footer">
+                        <div class="tech-pills">
+                            <span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>AWS Lambda</span><span>API Gateway</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-projeto">
-                    <h3>TechMoms | Frontend</h3>
-                    <p>Em parceria com o <strong>Porto Digital</strong> e a <strong>Accenture</strong>, liderei o desenvolvimento frontend de uma landing page para reinserir mães no mercado de trabalho como freelancers, focando em uma interface intuitiva e acessível.</p>
-                    <p class="tecnologias"><strong>Tecnologias:</strong> HTML, CSS, JavaScript</p>
+                    <div class="card-header">
+                        <span class="card-icon">💼</span>
+                        <div class="card-tags">
+                            <span class="tag">Frontend</span>
+                            <span class="tag tag-destaque">Porto Digital</span>
+                        </div>
+                    </div>
+                    <h3>TechMoms</h3>
+                    <p>Em parceria com o <strong>Porto Digital</strong> e a <strong>Accenture</strong>, liderei o frontend de uma landing page para reinserir mães no mercado de trabalho como freelancers.</p>
+                    <div class="card-footer">
+                        <div class="tech-pills">
+                            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-projeto">
+                    <div class="card-header">
+                        <span class="card-icon">🎮</span>
+                        <div class="card-tags">
+                            <span class="tag">IA</span>
+                            <span class="tag tag-destaque">Mostra TechDesign</span>
+                        </div>
+                    </div>
                     <h3>Jogo da Velha com IA</h3>
-                    <p>Apresentado na <strong>Mostra TechDesign 2024.2</strong>, este projeto consistiu em um jogo com múltiplos níveis de dificuldade. O destaque foi a IA do nível mais desafiador, que se provou imbatível durante o evento.</p>
-                    <p class="tecnologias"><strong>Tecnologias:</strong> Lógica de IA, Python</p>
+                    <p>Apresentado na <strong>Mostra TechDesign 2024.2</strong>, com múltiplos níveis de dificuldade. A IA do nível mais desafiador se provou imbatível durante o evento.</p>
+                    <div class="card-footer">
+                        <div class="tech-pills">
+                            <span>Python</span><span>Algoritmo Minimax</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="competencias" class="hidden">
             <h2>Competências Técnicas</h2>
-            <div class="grid-competencias">
-                <div>
+            <div class="competencias-wrapper">
+                <div class="competencia-grupo">
                     <h4>Linguagens</h4>
-                    <ul>
-                        <li>Python</li>
-                        <li>JavaScript</li>
-                        <li>TypeScript</li>
-                        <li>C</li>
-                    </ul>
+                    <div class="skill-tags">
+                        <span>Python</span>
+                        <span>JavaScript</span>
+                        <span>TypeScript</span>
+                        <span>C</span>
+                    </div>
                 </div>
-                <div>
+                <div class="competencia-grupo">
                     <h4>Frontend</h4>
-                    <ul>
-                        <li>React</li>
-                        <li>HTML5</li>
-                        <li>CSS3</li>
-                    </ul>
+                    <div class="skill-tags">
+                        <span>React</span>
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                    </div>
                 </div>
-                <div>
+                <div class="competencia-grupo">
                     <h4>Backend</h4>
-                    <ul>
-                        <li>Node.js</li>
-                        <li>FastAPI</li>
-                        <li>PostgreSQL</li>
-                    </ul>
+                    <div class="skill-tags">
+                        <span>Node.js</span>
+                        <span>FastAPI</span>
+                        <span>PostgreSQL</span>
+                    </div>
                 </div>
-                <div>
-                    <h4>Ferramentas & DevOps</h4>
-                    <ul>
-                        <li>Git</li>
-                        <li>Docker</li>
-                        <li>Cultura DevOps</li>
-                    </ul>
+                <div class="competencia-grupo">
+                    <h4>DevOps & Tools</h4>
+                    <div class="skill-tags">
+                        <span>Git</span>
+                        <span>Docker</span>
+                        <span>CI/CD</span>
+                    </div>
+                </div>
+                <div class="competencia-grupo">
+                    <h4>Cloud · AWS</h4>
+                    <div class="skill-tags">
+                        <span>Lambda</span>
+                        <span>API Gateway</span>
+                        <span>Cognito</span>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="formacao" class="hidden">
             <h2>Formação Acadêmica</h2>
-            <p><strong>Análise e Desenvolvimento de Sistemas</strong></p>
-            <p>Cesar School, Recife-PE (Cursando, 3º período)</p>
+            <div class="formacao-card">
+                <div class="formacao-icon">🎓</div>
+                <div class="formacao-info">
+                    <h3>Análise e Desenvolvimento de Sistemas</h3>
+                    <p class="formacao-escola">CESAR School · Recife, PE</p>
+                    <p class="formacao-status">Cursando · 5º Período</p>
+                </div>
+            </div>
         </section>
     </main>
 
+    <section id="contato">
+        <div class="container hidden">
+            <h2>Vamos Conversar?</h2>
+            <p class="contato-subtitulo">Aberto a oportunidades, colaborações e novos desafios.</p>
+            <div class="contato-links">
+                <a href="mailto:arthurfelipecampos@hotmail.com" class="btn btn-primary">Enviar Email</a>
+                <a href="https://www.linkedin.com/in/arthur-campos-a120472b7/" target="_blank" class="btn btn-outline">LinkedIn</a>
+                <a href="https://github.com/Arthur5502" target="_blank" class="btn btn-outline">GitHub</a>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2025 Arthur Felipe Campos Pina</p>
+        <p>&copy; 2026 Arthur Felipe Campos Pina</p>
     </footer>
 
     <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
     <script src="script.js"></script>
-
 </body>
 </html>

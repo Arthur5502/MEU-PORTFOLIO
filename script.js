@@ -1,99 +1,92 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    /*
-    =================================================
-    FUNCIONALIDADE 1: ANIMAÇÃO DE SCROLL (REVELAR AO ROLAR) - JÁ EXISTENTE
-    =================================================
-    */
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-            }
-        });
-    });
-    const hiddenElements = document.querySelectorAll('.hidden');
-    hiddenElements.forEach((el) => observer.observe(el));
+  const observer = new IntersectionObserver(
+    (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('show'); }),
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll('.hidden').forEach((el) => observer.observe(el));
 
-
-    /*
-    =================================================
-    FUNCIONALIDADE 2: EFEITO MÁQUINA DE ESCREVER - JÁ EXISTENTE
-    =================================================
-    */
-    new TypeIt("#subtitle-typewriter", {
-        speed: 75,
-        startDelay: 900,
-        loop: true,
-    })
-    .type('Desenvolvedor de Software', { delay: 1000 })
-    .delete(19)
-    .type('Data & DevOps', { delay: 1000 })
+  new TypeIt('#subtitle-typewriter', {
+    speed: 70,
+    startDelay: 800,
+    loop: true,
+  })
+    .type('Desenvolvedor Full Stack', { delay: 1600 })
+    .delete(null)
+    .type('Entusiasta de DevOps', { delay: 1600 })
+    .delete(null)
+    .type('Analista de Dados', { delay: 1600 })
+    .delete(null)
     .go();
 
+  const navbar = document.getElementById('navbar');
+  const backToTop = document.getElementById('backToTop');
 
-    /*
-    =================================================
-    NOVA FUNCIONALIDADE 1: HEADER ATIVADO POR SCROLL
-    =================================================
-    */
-    const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-        // Se o usuário rolar a página mais de 50 pixels para baixo...
-        if (window.scrollY > 50) {
-            // ...adiciona a classe que muda o estilo do header.
-            header.classList.add('header-scrolled');
-        } else {
-            // Senão, remove a classe para voltar ao normal.
-            header.classList.remove('header-scrolled');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+    backToTop.classList.toggle('visible', window.scrollY > 400);
+  });
+
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    navToggle.classList.toggle('open');
+  });
+
+  navLinks.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.classList.remove('open');
+    });
+  });
+
+  const sections = document.querySelectorAll('section[id], header[id]');
+  const navItems = document.querySelectorAll('.nav-links a');
+
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navItems.forEach((item) =>
+            item.classList.toggle('active', item.getAttribute('href') === `#${entry.target.id}`)
+          );
         }
-    });
+      });
+    },
+    { threshold: 0.5 }
+  );
+  sections.forEach((s) => sectionObserver.observe(s));
 
-
-    /*
-    =================================================
-    NOVA FUNCIONALIDADE 2: CURSOR PERSONALIZADO
-    =================================================
-    */
-    const cursorDot = document.querySelector('.cursor-dot');
-    const clickableElements = document.querySelectorAll('a, .card-projeto');
-
+  const cursorDot = document.querySelector('.cursor-dot');
+  if (cursorDot && window.matchMedia('(pointer: fine)').matches) {
     window.addEventListener('mousemove', (e) => {
-        // Move o cursor personalizado para a posição do mouse
-        cursorDot.style.left = `${e.clientX}px`;
-        cursorDot.style.top = `${e.clientY}px`;
-    });
-    
-    // Adiciona o efeito de "hover" no cursor
-    clickableElements.forEach(el => {
-        el.addEventListener('mouseenter', () => cursorDot.classList.add('hover'));
-        el.addEventListener('mouseleave', () => cursorDot.classList.remove('hover'));
+      cursorDot.style.left = `${e.clientX}px`;
+      cursorDot.style.top = `${e.clientY}px`;
     });
 
-
-    /*
-    =================================================
-    NOVA FUNCIONALIDADE 3: EFEITO 3D NOS CARDS DE PROJETO
-    =================================================
-    */
-    const projectCards = document.querySelectorAll('.card-projeto');
-    projectCards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-
-            // Define a intensidade da rotação
-            const rotateY = (x / rect.width) * 20; // Rotação no eixo Y
-            const rotateX = (-y / rect.height) * 20; // Rotação no eixo X
-
-            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        });
-
-        // Reseta o card quando o mouse sai
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'rotateX(0) rotateY(0)';
-        });
+    document.querySelectorAll('a, .card-projeto, button, .skill-tags span, .stat-card').forEach((el) => {
+      el.addEventListener('mouseenter', () => cursorDot.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursorDot.classList.remove('hover'));
     });
+  }
+
+  document.querySelectorAll('.card-projeto').forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
+      const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
+      card.style.transform = `translateY(-6px) rotateX(${-y * 8}deg) rotateY(${x * 8}deg)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
 
 });
